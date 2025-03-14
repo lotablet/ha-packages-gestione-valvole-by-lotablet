@@ -29,7 +29,7 @@ I componenti da installare in HACS sono:
    impostare il "Controllo manuale del dispositivo tado" su "Finchè l'utente non lo modifica" cliccando sulla stanza (non sulla valvola).
    Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler.
 
-**Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità vanno inserite in "default_schedule"**
+**Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità sono importantissime per il funzionamento di questo package e vanno inserite sotto settings nel package nella sezione "default_schedule"**
 
 
    BETTER THERMOSTAT
