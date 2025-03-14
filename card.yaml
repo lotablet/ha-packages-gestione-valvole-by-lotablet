@@ -1,0 +1,160 @@
+square: false
+type: grid
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: input_boolean.package_valvole_boost
+        show_name: false
+        show_state: false
+        styles:
+          card:
+            - height: 55px
+            - width: 55px
+            - border-radius: 30%
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: toggle
+          confirmation:
+            text: >
+              [[[ return states['input_boolean.package_valvole_boost'].state ===
+              'on'
+                    ? "Disattivo la Modalità Boost?"
+                    : "Attivo la Modalità Boost 🚀 ?" ]]]
+            confirm_text: Conferma
+            cancel_text: Annulla
+      - type: custom:timer-bar-card
+        entities:
+          - entity: timer.package_valvole_boost
+            name: ""
+            icon: "n"
+        card_mod:
+          style: |
+            ha-card {
+              width: 0px !important;
+              left: -120px;
+              top: 30px;
+            }
+  - type: horizontal-stack
+    cards:
+      - type: custom:gap-card
+      - type: custom:gap-card
+      - type: custom:button-card
+        entity: input_boolean.package_valvole_away
+        show_name: false
+        show_state: false
+        styles:
+          card:
+            - height: 55px
+            - width: 55px
+            - border-radius: 30%
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: toggle
+          confirmation:
+            text: >
+              [[[ return states['input_boolean.package_valvole_away'].state ===
+              'on'
+                    ? "❌Disattivo la Modalità Away?❌🚶‍♂️‍➡️"
+                    : "🚶‍♂️‍➡️Vuoi attivare la Modalità Away?🚶‍♂️‍➡️" ]]]
+            confirm_text: Conferma
+            cancel_text: Annulla
+      - type: custom:button-card
+        entity: input_boolean.package_valvole_home
+        show_name: false
+        show_state: false
+        styles:
+          card:
+            - height: 55px
+            - width: 55px
+            - border-radius: 30%
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: toggle
+          confirmation:
+            text: >
+              [[[ return states['input_boolean.package_valvole_home'].state ===
+              'on'
+                    ? "❌ Disattivo la Modalità Casa? ❌"
+                    : "🏠Attivo la Modalità Casa?🏠" ]]]
+            confirm_text: Conferma
+            cancel_text: Annulla
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_camera
+    disable_eco: true
+    name: Valvola Camera
+    disable_battery_warning: false
+    disable_buttons: false
+    set_current_as_main: false
+    disable_menu: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_cameretta
+    disable_eco: true
+    name: Valvola Cameretta
+    disable_menu: false
+    disable_summer: false
+    disable_off: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_cucina
+    disable_eco: true
+    name: Valvola Cucina
+    disable_menu: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_sala
+    disable_eco: true
+    name: Valvola Sala
+    disable_menu: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_corridoio
+    disable_eco: true
+    name: Valvola Corridoio
+    disable_off: false
+    disable_menu: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+  - type: custom:better-thermostat-ui-card
+    entity: climate.valvola_bagno
+    disable_eco: true
+    name: Valvola Bagno
+    disable_menu: false
+    card_mod:
+      style: |
+        bt-ha-control-circular-slider {
+          visibility: hidden;
+          pointer-events: none;
+        }
+columns: 2
