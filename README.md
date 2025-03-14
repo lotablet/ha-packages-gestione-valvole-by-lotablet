@@ -136,9 +136,9 @@ actions:
 
 **Questa è la mia configurazione con delle valvole Tado V3+**
 
-![Config 1](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/config1.png)
+![Config 1](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/card1.gif)
 
-![Config 2](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/config2.png)
+![Config 2](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/config2.png)
 
 **La Card**
 
