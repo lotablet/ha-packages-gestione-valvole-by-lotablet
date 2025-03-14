@@ -1,0 +1,243 @@
+homeassistant:
+  customize:
+    package.node_anchors:
+      customize: &customize
+        package: 'Gestione valvole by LoTableT'
+        author: 'LoTableT'
+
+# Impostazioni per le entità
+        setting:
+          Lista Scheduler Switch Valvole (programmazione oraria): &default_schedule
+            - switch.schedule_valvola_bagno
+            - switch.schedule_valvola_corridoio_sala
+            - switch.schedule_valvola_cucina
+            - switch.schedule_valvola_camera
+            - switch.schedule_valvola_cameretta
+        
+          Lista delle Valvole: &default_climate
+            - climate.valvola_bagno
+            - climate.valvola_camera
+            - climate.valvola_cameretta
+            - climate.valvola_sala
+            - climate.valvola_cucina
+            - climate.valvola_corridoio
+
+
+
+#############################################
+# I componenti da installare in HACS sono:
+#
+#   - Better Thermostat UI
+#   - OPZIONALE: Better Thermostat (se si vuole usare un sensore non tado che sincronizza l'offset sulla valvola)
+#   - Scheduler Component
+#   - Scheduler Card
+#   - Timer Bar Card
+#   - Button Card
+#   - Gap Card
+#   - Card Mod
+#
+#
+#   SCHEDULER - LA PROGRAMMAZIONE ORARIA
+#
+#   Riavviare il server di HA, aggiungere l'integrazione Scheduler Component, poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
+#   La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app (io uso Tado) e copiarle, per ogni valvola.
+#
+#   Nell'app di Tado ho disabilitato la Programmazione Intelligente, andando in "Impostazioni - Programmazione Intelligente" e impostando la fascia oraria da 00:00 a 00:00 in ogni stanza su OFF e poi in "Stanze e dispositivi" 
+#   impostare il "Controllo manuale del dispositivo tado" su "Finchè l'utente non lo modifica" cliccando sulla stanza (non sulla valvola).
+#   Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler.
+#   Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità vanno inserite in "default_schedule" qui sopra-
+#
+#
+#   BETTER THERMOSTAT
+#
+#   Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md
+#   Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate.
+#   Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sopra "default_climate"
+#   ATTENZIONE: Io ho avuto problemi a configurare Better Thermostat perche alcune entità che avevo inserito come l'outdoor temperature, non erano inserite nel recorder, quindi assicurarsi che tutte le entità (temperatura, umidità etc) siamo inserite nel registro di sistema.
+
+
+
+
+# INPUT BOOLEAN
+input_boolean:
+  package_valvole_away:
+    name: "Valvole AWAY"
+    icon: mdi:walk
+    initial: off
+  package_valvole_home:
+    name: "Valvole HOME"
+    icon: mdi:home-thermometer
+    initial: off
+  package_valvole_boost:
+    name: "Valvole BOOST"
+    icon: mdi:rocket-launch
+    initial: off
+
+# TIMER
+timer:
+  package_valvole_boost:
+    icon: mdi:av-timer
+    name: "Timer Valvole Boost"
+    duration: '01:00:00'  # Durata predefinita di 1 ora
+
+
+# AUTOMAZIONI
+automation:
+  - alias: "Valvole - Boost"
+    trigger:
+      - platform: state
+        entity_id: input_boolean.package_valvole_boost
+        from: "off"
+        to: "on"
+        id: acceso
+      - platform: state
+        entity_id: input_boolean.package_valvole_boost
+        from: "on"
+        to: "off"
+        id: spento
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: acceso
+            sequence:
+              - service: script.turn_on
+                target:
+                  entity_id: script.package_valvole_boost_1_ora
+          - conditions:
+              - condition: trigger
+                id: spento
+            sequence:
+              - service: timer.cancel
+                target:
+                  entity_id: timer.package_valvole_boost  # Cancella il timer Boost
+              - service: script.turn_off
+                target:
+                  entity_id: script.package_valvole_boost_1_ora
+              - delay:
+                  seconds: 1
+              - service: script.turn_on
+                target:
+                  entity_id: script.package_valvole_home
+    mode: single
+  - alias: "Valvole - Away/Home"
+    trigger:
+      - platform: state
+        entity_id: input_boolean.package_valvole_away
+        from: "off"
+        to: "on"
+        id: acceso_away
+      - platform: state
+        entity_id: input_boolean.package_valvole_away
+        from: "on"
+        to: "off"
+        id: spento_away
+      - platform: state
+        entity_id: input_boolean.package_valvole_home
+        from: "off"
+        to: "on"
+        id: acceso_home
+      - platform: state
+        entity_id: input_boolean.package_valvole_home
+        from: "on"
+        to: "off"
+        id: spento_home
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: acceso_away
+            sequence:
+              - service: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.package_valvole_home
+              - delay: 1
+              - service: script.turn_on
+                target:
+                  entity_id: script.package_valvole_away
+          - conditions:
+              - condition: trigger
+                id: spento_away
+            sequence:
+              - service: input_boolean.turn_on
+                target:
+                  entity_id: input_boolean.package_valvole_home
+          - conditions:
+              - condition: trigger
+                id: acceso_home
+            sequence:
+              - service: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.package_valvole_away
+              - delay: 1
+              - service: script.turn_on
+                target:
+                  entity_id: script.package_valvole_home
+          - conditions:
+              - condition: trigger
+                id: spento_home
+            sequence:
+              - service: switch.turn_off
+                target:
+                  entity_id: *default_schedule
+    mode: single
+
+  - alias: "Valvole - Timer Boost Finished"
+    trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.package_valvole_boost
+    action:
+      - service: script.turn_on
+        target:
+          entity_id: script.package_valvole_home
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.package_valvole_boost
+    mode: single
+
+# SCRIPT
+script:
+  package_valvole_away:
+    alias: "PACKAGE Valvole - AWAY"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: 
+            *default_schedule
+      - delay:
+          seconds: 5
+      - service: climate.turn_off
+        target:
+          entity_id: *default_climate
+
+  package_valvole_boost_1_ora:
+    alias: "PACKAGE Valvole - BOOST 1 ORA"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: *default_schedule
+      - delay:
+          seconds: 5
+      - service: climate.set_temperature
+        data:
+          temperature: 25
+          hvac_mode: heat
+        target:
+          entity_id: *default_climate
+      - service: timer.start
+        target:
+          entity_id: timer.package_valvole_boost
+
+  package_valvole_home:
+    alias: "PACKAGE Valvole - HOME"
+    sequence:
+      - service: climate.turn_on
+        target:
+          entity_id: *default_climate
+      - delay:
+          seconds: 5
+      - service: switch.turn_on
+        target:
+          entity_id: *default_schedule
