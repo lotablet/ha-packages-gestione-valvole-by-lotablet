@@ -143,4 +143,4 @@ actions:
 **La Card**
 
 
-![Card](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card-valvole.gif)
+![Card](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/card-valvole.gif)
