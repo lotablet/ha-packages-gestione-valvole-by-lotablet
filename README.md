@@ -82,9 +82,9 @@ binary_sensor:
           {% endif %}
 ```
 
-Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con il vostro nome utente.
+Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con i nomi utente delle persone che hanno il profilo sul vostro server di Home Assistant, con ovviamente relativo device_tracker configurato per ogni profilo.
 
-e l'automazione (incollo direttamente l'automazione da interfaccia)
+Ecco un automazione per la gestione della presenza e spegnimento/accensione delle valvole (incollo direttamente l'automazione da inserire in Automazioni e Scenari - Automazioni)
 ```
 description: "Quando nessuno a casa, attiva la modalità AWAY. Al rientro attiva la modalità HOME"
 mode: single
