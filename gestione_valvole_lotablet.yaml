@@ -104,6 +104,9 @@ automation:
               - service: script.turn_on
                 target:
                   entity_id: script.package_valvole_boost_1_ora
+              - service: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.package_valvole_away
           - conditions:
               - condition: trigger
                 id: spento
