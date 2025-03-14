@@ -27,3 +27,4 @@
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate.
    Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sopra "default_climate"
    ATTENZIONE: Io ho avuto problemi a configurare Better Thermostat perche alcune entità che avevo inserito come l'outdoor temperature, non erano inserite nel recorder, quindi assicurarsi che tutte le entità (temperatura, umidità etc) siamo inserite nel registro di sistema.
+   OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat, io questa parte l'ho esclusa perche l'ho automatizzata tramite Node-RED.
