@@ -83,38 +83,48 @@ timer:
 
 
 # AUTOMAZIONI
+# AUTOMAZIONI
 automation:
-  - alias: "Valvole - Boost"
+  - alias: "Package Valvole - Automazioni"
     trigger:
       - platform: state
-        entity_id: input_boolean.package_valvole_boost
-        from: "off"
-        to: "on"
-        id: acceso
-      - platform: state
-        entity_id: input_boolean.package_valvole_boost
-        from: "on"
-        to: "off"
-        id: spento
+        entity_id:
+          - input_boolean.package_valvole_boost
+          - input_boolean.package_valvole_away
+          - input_boolean.package_valvole_home
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.package_valvole_boost
     action:
       - choose:
           - conditions:
-              - condition: trigger
-                id: acceso
+              - condition: template
+                value_template: >
+                  {{ trigger.platform == 'state' and
+                     trigger.entity_id == 'input_boolean.package_valvole_boost' and
+                     trigger.to_state.state == 'on' }}
             sequence:
+              - service: input_boolean.turn_off
+                target:
+                  entity_id:
+                    - input_boolean.package_valvole_home
+                    - input_boolean.package_valvole_away
               - service: script.turn_on
                 target:
                   entity_id: script.package_valvole_boost_1_ora
-              - service: input_boolean.turn_off
-                target:
-                  entity_id: input_boolean.package_valvole_away
           - conditions:
-              - condition: trigger
-                id: spento
+              - condition: template
+                value_template: >
+                  {{ (trigger.platform == 'state' and
+                      trigger.entity_id == 'input_boolean.package_valvole_boost' and
+                      trigger.to_state.state == 'off')
+                     or
+                     (trigger.platform == 'event' and trigger.event_type == 'timer.finished') }}
             sequence:
               - service: timer.cancel
                 target:
-                  entity_id: timer.package_valvole_boost  # Cancella il timer Boost
+                  entity_id: timer.package_valvole_boost
               - service: script.turn_off
                 target:
                   entity_id: script.package_valvole_boost_1_ora
@@ -123,84 +133,76 @@ automation:
               - service: script.turn_on
                 target:
                   entity_id: script.package_valvole_home
-    mode: single
-  - alias: "Valvole - Away/Home"
-    trigger:
-      - platform: state
-        entity_id: input_boolean.package_valvole_away
-        from: "off"
-        to: "on"
-        id: acceso_away
-      - platform: state
-        entity_id: input_boolean.package_valvole_away
-        from: "on"
-        to: "off"
-        id: spento_away
-      - platform: state
-        entity_id: input_boolean.package_valvole_home
-        from: "off"
-        to: "on"
-        id: acceso_home
-      - platform: state
-        entity_id: input_boolean.package_valvole_home
-        from: "on"
-        to: "off"
-        id: spento_home
-    action:
-      - choose:
-          - conditions:
-              - condition: trigger
-                id: acceso_away
-            sequence:
               - service: input_boolean.turn_off
                 target:
-                  entity_id: input_boolean.package_valvole_home
-              - delay: 1
+                  entity_id: input_boolean.package_valvole_away
+          - conditions:
+              - condition: template
+                value_template: >
+                  {{ trigger.platform == 'state' and
+                     trigger.entity_id == 'input_boolean.package_valvole_away' and
+                     trigger.to_state.state == 'on' }}
+            sequence:
+              - service: timer.cancel
+                target:
+                  entity_id: timer.package_valvole_boost
+              - service: script.turn_off
+                target:
+                  entity_id: script.package_valvole_boost_1_ora
+              - service: input_boolean.turn_off
+                target:
+                  entity_id:
+                    - input_boolean.package_valvole_boost
+                    - input_boolean.package_valvole_home
+              - delay:
+                  seconds: 1
               - service: script.turn_on
                 target:
                   entity_id: script.package_valvole_away
           - conditions:
-              - condition: trigger
-                id: spento_away
+              - condition: template
+                value_template: >
+                  {{ trigger.platform == 'state' and
+                     trigger.entity_id == 'input_boolean.package_valvole_away' and
+                     trigger.to_state.state == 'off' }}
             sequence:
-              - service: input_boolean.turn_on
+              - service: climate.turn_on
                 target:
-                  entity_id: input_boolean.package_valvole_home
+                  entity_id: *default_climate
           - conditions:
-              - condition: trigger
-                id: acceso_home
+              - condition: template
+                value_template: >
+                  {{ trigger.platform == 'state' and
+                     trigger.entity_id == 'input_boolean.package_valvole_home' and
+                     trigger.to_state.state == 'on' }}
             sequence:
+              - service: timer.cancel
+                target:
+                  entity_id: timer.package_valvole_boost
+              - service: script.turn_off
+                target:
+                  entity_id: script.package_valvole_boost_1_ora
               - service: input_boolean.turn_off
                 target:
-                  entity_id: input_boolean.package_valvole_away
-              - delay: 1
+                  entity_id:
+                    - input_boolean.package_valvole_boost
+                    - input_boolean.package_valvole_away
+              - delay:
+                  seconds: 1
               - service: script.turn_on
                 target:
                   entity_id: script.package_valvole_home
           - conditions:
-              - condition: trigger
-                id: spento_home
+              - condition: template
+                value_template: >
+                  {{ trigger.platform == 'state' and
+                     trigger.entity_id == 'input_boolean.package_valvole_home' and
+                     trigger.to_state.state == 'off' }}
             sequence:
               - service: switch.turn_off
                 target:
                   entity_id: *default_schedule
     mode: single
-
-  - alias: "Valvole - Timer Boost Finished"
-    trigger:
-      - platform: event
-        event_type: timer.finished
-        event_data:
-          entity_id: timer.package_valvole_boost
-    action:
-      - service: script.turn_on
-        target:
-          entity_id: script.package_valvole_home
-      - service: input_boolean.turn_off
-        target:
-          entity_id: input_boolean.package_valvole_boost
-    mode: single
-
 # SCRIPT
 script:
   package_valvole_away:
