@@ -1,6 +1,6 @@
 # 🔥🔥🔥 **GESTIONE VALVOLE by LoTableT** 🔥🔥🔥
 
-Benvenuto sulla guida di questo package per la gestione delle nostre valvole termostatiche!
+Benvenuto nella guida di questo package per la gestione delle nostre valvole termostatiche!
 
 Se ti piace il mio lavoro e per i video dove spiego i miei packages, seguimi su Tiktok e Youtube! [LINK](https://linktr.ee/lotablet) 
 
