@@ -1,10 +1,14 @@
 # **GESTIONE VALVOLE by LoTableT**
 
-Benvenuto su questa guida di questo package per la gestione delle nostre valvole termostatiche! 
-Questo package è stato pensato e ceato per una mia neccessità di condivisione con amici, e quindi ho deciso di pubblicarlo (ciao Roby e Alex <3 )
+Benvenuto sulla guida di questo package per la gestione delle nostre valvole termostatiche!
+
+Se ti piace il mio lavoro seguimi su Tiktok e Youtube! [LINK](https://linktr.ee/lotablet) 
 
 
-Seguimi su Tiktok e Youtube! [LINK](https://linktr.ee/lotablet) 
+Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
+
+
+
 
 Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) questo va inserito nella cartella:
 
