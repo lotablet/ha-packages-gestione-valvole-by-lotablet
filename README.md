@@ -1,8 +1,12 @@
 # **GESTIONE VALVOLE by LoTableT**
 
+Benvenuto su questa guida di questo package per la gestione delle nostre valvole termostatiche! 
+Questo package è stato pensato e ceato per una mia neccessità di condivisione con amici, e quindi ho deciso di pubblicarlo (ciao Roby e Alex <3 )
+
+
 Seguimi su Tiktok e Youtube! [LINK](https://linktr.ee/lotablet) 
 
-Questo package [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) va inserito nella cartella:
+Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) questo va inserito nella cartella:
 
 ```
 /config/packages/
@@ -55,7 +59,7 @@ card_mod:
     }
 ```
 
-# **Descrizione Card e Opzioni Aggiuntive**
+# **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
 La card ha 3 pulsanti ed un timer, Modalità Boost che attiva un timer da 1 ora, Modalità Away e Modalità Home, e fanno esattamente quello che farebbe l'app di Tado.
 
 **ATTENZIONE:** Per la modalità Away e Home, vi basta creare un automazione che quando non ce nessuno in casa, si attiva la modalità Away.
