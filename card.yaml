@@ -34,7 +34,7 @@ cards:
           style: |
             ha-card {
               width: 0px !important;
-              left: -120px;
+              left: -123px;
               top: 30px;
             }
   - type: horizontal-stack
