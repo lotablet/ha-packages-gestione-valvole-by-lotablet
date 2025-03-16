@@ -117,11 +117,20 @@ automation:
           datetime: |
             {{ (now().timestamp() + 300) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}
         action: input_datetime.set_datetime
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 1
+          milliseconds: 0
+        enabled: true
+      - condition: state
+        entity_id: input_boolean.package_valvole_away
+        state: "off"
       - target:
           entity_id: input_boolean.package_valvole_home
         action: input_boolean.turn_on
         data: {}
-    mode: queued
+    mode: single
 
   - alias: Package Gestione Valvole - Ripristino Away - Home
     id: package_ripristino_away_home
@@ -133,6 +142,9 @@ automation:
         trigger: state
     conditions: []
     actions:
+      - condition: state
+        entity_id: input_boolean.package_valvole_boost
+        state: "off"
       - delay:
           hours: 0
           minutes: 0
