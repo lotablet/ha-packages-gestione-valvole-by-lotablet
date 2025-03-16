@@ -31,8 +31,11 @@ I componenti da installare in HACS sono:
    Nell'app di Tado ho disabilitato la Programmazione Intelligente, andando in "Impostazioni - Programmazione Intelligente" e impostando la fascia oraria da 00:00 a 00:00 in ogni stanza su OFF e poi in "Stanze e dispositivi" 
    impostare il "Controllo manuale del dispositivo tado" su "Finchè l'utente non lo modifica" cliccando sulla stanza (non sulla valvola).
    Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler.
+   
+   ![Scheduler](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/scheduler.gif)
+   
 
-**Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità sono importantissime per il funzionamento di questo package e vanno inserite sotto settings nel package nella sezione "default_schedule"**
+**Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità andranno inserite in "default_schedule" (vedi Lista Scheduler Switch Valvole)
 
 
    BETTER THERMOSTAT
