@@ -10,7 +10,7 @@ Questo package è stato pensato e creato per una mia neccessità e condivisione 
 
 
 
-Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) questo va inserito nella cartella:
+Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella:
 
 ```
 /config/packages/
