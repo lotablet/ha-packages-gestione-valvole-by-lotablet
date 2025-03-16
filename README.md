@@ -16,7 +16,6 @@ I componenti da installare in HACS sono:
 >   - Scheduler Card
 >   - Timer Bar Card
 >   - Button Card
->   - Gap Card
 >   - Card Mod
 
 
