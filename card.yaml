@@ -26,6 +26,7 @@ cards:
             confirm_text: Conferma
             cancel_text: Annulla
       - type: custom:timer-bar-card
+        sync_issues: ignore
         entities:
           - entity: timer.package_valvole_boost
             name: ""
@@ -93,12 +94,6 @@ cards:
     disable_buttons: false
     set_current_as_main: false
     disable_menu: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
   - type: custom:better-thermostat-ui-card
     entity: climate.valvola_cameretta
     disable_eco: true
@@ -106,55 +101,25 @@ cards:
     disable_menu: false
     disable_summer: false
     disable_off: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
   - type: custom:better-thermostat-ui-card
     entity: climate.valvola_cucina
     disable_eco: true
     name: Valvola Cucina
     disable_menu: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
   - type: custom:better-thermostat-ui-card
     entity: climate.valvola_sala
     disable_eco: true
     name: Valvola Sala
     disable_menu: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
   - type: custom:better-thermostat-ui-card
     entity: climate.valvola_corridoio
     disable_eco: true
     name: Valvola Corridoio
     disable_off: false
     disable_menu: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
   - type: custom:better-thermostat-ui-card
     entity: climate.valvola_bagno
     disable_eco: true
     name: Valvola Bagno
     disable_menu: false
-    card_mod:
-      style: |
-        bt-ha-control-circular-slider {
-          visibility: hidden;
-          pointer-events: none;
-        }
 columns: 2
