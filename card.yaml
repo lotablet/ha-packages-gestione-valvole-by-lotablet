@@ -90,39 +90,75 @@ cards:
             confirm_text: Conferma
             cancel_text: Annulla
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_1
+    entity: climate.valvola_sala
+    name: Valvola Sala
     disable_eco: true
-    name: Valvola 1
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_2
+    entity: climate.valvola_cucina
+    name: Valvola Cucina
     disable_eco: true
-    name: Valvola 2
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_3
+    entity: climate.valvola_bagno
+    name: Valvola Bagno
     disable_eco: true
-    name: Valvola 3
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_4
+    entity: climate.valvola_corridoio
+    name: Valvola Corridoio
     disable_eco: true
-    name: Valvola 4
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_5
+    entity: climate.valvola_cameretta
+    name: Valvola Cameretta
     disable_eco: true
-    name: Valvola 5
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
   - type: custom:better-thermostat-ui-card
-    entity: climate.valvola_6
+    entity: climate.valvola_camera
+    name: Valvola Camera
     disable_eco: true
-    name: Valvola 6
     disable_menu: false
     disable_off: false
+    disable_summer: false
+    disable_window: false
+    disable_heat: false
+    disable_battery_warning: false
+    set_current_as_main: false
+    disable_buttons: false
 columns: 2
