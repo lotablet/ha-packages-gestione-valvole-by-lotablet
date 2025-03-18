@@ -50,19 +50,7 @@ I componenti da installare in HACS sono:
 
 # **CARD**
 
-In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 6 valvole.
-
-Personalmente ho preferito **togliere l'arco (gauge)** della temperatura, perche sullo smartphone facendo swipe, rischiavo continuamente di modificare la temperatura azionando la valvola.
-Se si vuole l'arco della temperatura come di default di Better Thermostat, bisogna togliere questo codice dalla card:
-
-```
-card_mod:
-  style: |
-    bt-ha-control-circular-slider {
-      visibility: hidden;
-      pointer-events: none;
-    }
-```
+In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 6 valvole e i 3 input boolean creati e un timer per la modalità BOOST.
 
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
 La card ha 3 pulsanti ed un timer, Modalità Boost che attiva un timer da 1 ora, Modalità Away e Modalità Home, e fanno esattamente quello che farebbe l'app di Tado.
