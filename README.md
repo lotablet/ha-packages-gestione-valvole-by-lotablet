@@ -51,6 +51,7 @@ I componenti da installare in HACS sono:
 # **CARD**
 
 In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 6 valvole e i 3 input boolean creati e un timer per la modalità BOOST.
+Niente di speciale, è solo una card con 3 pulsanti e un timer, ma è un buon punto di partenza per sbizzarrirvi 😁
 
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
 La card ha 3 pulsanti ed un timer, Modalità Boost che attiva un timer da 1 ora, Modalità Away e Modalità Home, e fanno esattamente quello che farebbe l'app di Tado.
