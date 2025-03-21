@@ -9,8 +9,7 @@ Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
 
-## AGGIORNAMENTO 21/03/25: Per i possessori di tado, attualmente l'integrazione ha dei problemi perche hanno aggiornato l'autenticazione delle loro API, pertanto l'integrazione non funziona per ora.
-https://github.com/home-assistant/core/issues/141089#
+## AGGIORNAMENTO 21/03/25: Per i possessori di tado, attualmente l'integrazione ha dei problemi perche hanno aggiornato l'autenticazione delle loro API, pertanto l'integrazione non funziona per ora: https://github.com/home-assistant/core/issues/141089#
 
 
 Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella:
