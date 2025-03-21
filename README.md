@@ -84,6 +84,7 @@ Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con i nomi utente delle persone che h
 
 Ecco un automazione per la gestione della presenza e spegnimento/accensione delle valvole (incollo direttamente l'automazione da inserire in Automazioni e Scenari - Automazioni)
 ```
+alias: Gestione Presenze Valvole
 description: "Quando nessuno a casa, attiva la modalità AWAY. Al rientro attiva la modalità HOME"
 mode: single
 triggers:
