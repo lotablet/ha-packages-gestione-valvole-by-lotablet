@@ -6,10 +6,10 @@ homeassistant:
         author: 'LoTableT'
         setting:
           Lista Scheduler Switch Valvole: &default_schedule
-            - switch.scheduler_1
-            - switch.scheduler_2
-            - switch.scheduler_3
-            - switch.scheduler_4
+            - switch.schedule_scheduler_1
+            - switch.schedule_scheduler_2
+            - switch.schedule_scheduler_3
+            - switch.schedule_scheduler_4
           Lista Valvole Termostatiche: &default_climate
             - climate.valvola_1
             - climate.valvola_2
