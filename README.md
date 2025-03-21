@@ -1,4 +1,4 @@
-# 🔥 **GESTIONE VALVOLE tado©** 🔥
+# 🔥 **GESTIONE VALVOLE by LoTableT** 🔥
 
 Benvenuto nella guida di questo package per la gestione delle nostre valvole termostatiche!
 
