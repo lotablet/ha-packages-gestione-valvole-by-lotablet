@@ -1,4 +1,4 @@
-# 🔥🔥🔥 **GESTIONE VALVOLE Tado by LoTableT** 🔥🔥🔥 
+# 🔥🔥🔥 **GESTIONE VALVOLE tado© by LoTableT** 🔥🔥🔥 
 
 Benvenuto nella guida di questo package per la gestione delle nostre valvole termostatiche!
 
@@ -30,11 +30,11 @@ I componenti da installare in HACS sono:
    SCHEDULER - LA PROGRAMMAZIONE ORARIA
 
    Una volta installato tutto, riavviare il server di HA, aggiungere l'integrazione Scheduler Component, poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
-   La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app (io uso Tado) e copiarle, per ogni valvola.
+   La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app di tado© e copiarle, per ogni valvola.
    
    ![Scheduler](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/scheduler.gif)
    
-   Nell'app di Tado ho disabilitato la Programmazione Intelligente, andando in "Impostazioni - Programmazione Intelligente" e impostando la fascia oraria da 00:00 a 00:00 in ogni stanza su OFF e poi in "Stanze e dispositivi" 
+   Nell'app di tado© ho disabilitato la Programmazione Intelligente, andando in "Impostazioni - Programmazione Intelligente" e impostando la fascia oraria da 00:00 a 00:00 in ogni stanza su OFF e poi in "Stanze e dispositivi" 
    impostare il "Controllo manuale del dispositivo tado" su "Finchè l'utente non lo modifica" cliccando sulla stanza (non sulla valvola).
    Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler (vedi screenshot in fondo alla pagina)
    
