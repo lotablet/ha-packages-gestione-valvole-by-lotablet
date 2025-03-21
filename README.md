@@ -46,7 +46,7 @@ I componenti da installare in HACS sono:
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate qui sotto nella sezione **SCREENSHOTS**
    Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sotto "default_climate" (vedi "Lista Valvole Termostatiche" nel package)
-   OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat, io questa parte l'ho esclusa perche l'ho automatizzata tramite Node-RED.
+   OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat, io questa parte l'ho esclusa dal package perche l'ho automatizzata tramite Node-RED.
 
 # **CARD**
 
