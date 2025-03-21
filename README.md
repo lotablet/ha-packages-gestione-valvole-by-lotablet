@@ -4,7 +4,7 @@ Benvenuto nella guida di questo package per la gestione delle nostre valvole ter
 
 Se ti piace il mio lavoro e per i video dove spiego i miei packages, seguimi su Tiktok e Youtube! [LINK](https://linktr.ee/lotablet) 
 
-Videov [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
+Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 
 
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
