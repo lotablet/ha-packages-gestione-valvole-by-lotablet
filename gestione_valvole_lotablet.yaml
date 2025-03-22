@@ -103,14 +103,18 @@ automation:
       - delay:
           hours: 0
           minutes: 0
-          seconds: 1
+          seconds: 2
           milliseconds: 0
         enabled: true
       - target:
           entity_id: timer.package_valvole_boost
         action: timer.cancel
         data: {}
-      - delay: "00:00:01"
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 2
+          milliseconds: 0
       - target:
           entity_id: input_datetime.package_valvole_boost_end
         data_template:
@@ -120,7 +124,7 @@ automation:
       - delay:
           hours: 0
           minutes: 0
-          seconds: 1
+          seconds: 2
           milliseconds: 0
         enabled: true
       - condition: state
@@ -148,7 +152,7 @@ automation:
       - delay:
           hours: 0
           minutes: 0
-          seconds: 1
+          seconds: 2
           milliseconds: 0
         enabled: true
       - target:
@@ -184,7 +188,7 @@ automation:
       - delay:
           hours: 0
           minutes: 0
-          seconds: 1
+          seconds: 2
           milliseconds: 0
         enabled: true
       - choose:
@@ -200,7 +204,11 @@ automation:
                   entity_id: *default_schedule
                 action: switch.turn_off
                 data: {}
-              - delay: "00:00:01"
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 2
+                  milliseconds: 0
               - target:
                   entity_id:
                     - input_boolean.package_valvole_home
@@ -211,7 +219,11 @@ automation:
                   entity_id: *default_climate
                 action: climate.turn_on
                 data: {}
-              - delay: "00:00:01"
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 5
+                  milliseconds: 0
               - target:
                   entity_id: *default_climate
                 data:
@@ -264,16 +276,26 @@ automation:
                   entity_id: *default_schedule
                 action: switch.turn_off
                 data: {}
-              - delay: "00:00:02"
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 2
               - target:
                   entity_id: *default_climate
                 action: climate.turn_on
                 data: {}
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 5
               - target:
                   entity_id: *default_schedule
                 action: switch.turn_on
                 data: {}
-              - delay: "00:00:01"
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 1
               - target:
                   entity_id: input_datetime.package_valvole_boost_end
                 data:
@@ -314,7 +336,10 @@ automation:
                   entity_id: *default_schedule
                 action: switch.turn_off
                 data: {}
-              - delay: "00:00:01"
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 2
               - target:
                   entity_id: *default_climate
                 action: climate.turn_off
@@ -376,7 +401,7 @@ automation:
               - delay:
                   hours: 0
                   minutes: 0
-                  seconds: 1
+                  seconds: 5
                   milliseconds: 0
               - action: switch.turn_on
                 metadata: {}
