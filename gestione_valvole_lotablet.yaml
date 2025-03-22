@@ -204,11 +204,6 @@ automation:
                   entity_id: *default_schedule
                 action: switch.turn_off
                 data: {}
-              - delay:
-                  hours: 0
-                  minutes: 0
-                  seconds: 2
-                  milliseconds: 0
               - target:
                   entity_id:
                     - input_boolean.package_valvole_home
@@ -263,23 +258,19 @@ automation:
                 id: home
             sequence:
               - target:
+                  entity_id: timer.package_valvole_boost
+                action: timer.cancel
+                data: {}
+              - target:
                   entity_id:
                     - input_boolean.package_valvole_boost
                     - input_boolean.package_valvole_away
                 action: input_boolean.turn_off
                 data: {}
               - target:
-                  entity_id: timer.package_valvole_boost
-                action: timer.cancel
-                data: {}
-              - target:
                   entity_id: *default_schedule
                 action: switch.turn_off
                 data: {}
-              - delay:
-                  hours: 0
-                  minutes: 0
-                  seconds: 2
               - target:
                   entity_id: *default_climate
                 action: climate.turn_on
@@ -292,10 +283,6 @@ automation:
                   entity_id: *default_schedule
                 action: switch.turn_on
                 data: {}
-              - delay:
-                  hours: 0
-                  minutes: 0
-                  seconds: 1
               - target:
                   entity_id: input_datetime.package_valvole_boost_end
                 data:
@@ -323,14 +310,14 @@ automation:
                 id: away
             sequence:
               - target:
+                  entity_id: timer.package_valvole_boost
+                action: timer.cancel
+                data: {}
+              - target:
                   entity_id:
                     - input_boolean.package_valvole_boost
                     - input_boolean.package_valvole_home
                 action: input_boolean.turn_off
-                data: {}
-              - target:
-                  entity_id: timer.package_valvole_boost
-                action: timer.cancel
                 data: {}
               - target:
                   entity_id: *default_schedule
@@ -371,6 +358,11 @@ automation:
                 id:
                   - timerfinito
             sequence:
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 1
+                  milliseconds: 0
               - target:
                   entity_id: input_boolean.package_valvole_boost
                 action: input_boolean.turn_off
@@ -401,7 +393,7 @@ automation:
               - delay:
                   hours: 0
                   minutes: 0
-                  seconds: 5
+                  seconds: 30
                   milliseconds: 0
               - action: switch.turn_on
                 metadata: {}
