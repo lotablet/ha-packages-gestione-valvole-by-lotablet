@@ -9,7 +9,12 @@ Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
 
-## AGGIORNAMENTO 21/03/25: Per i possessori di tado, attualmente l'integrazione ha dei problemi perche hanno aggiornato l'autenticazione delle loro API, pertanto l'integrazione non funziona per ora: https://github.com/home-assistant/core/issues/141089#
+## DISCLAIMER per chi ha tado: 
+
+**Nella dimostrazione, faccio cambi di modalità veloci perche le prove sono state fatte su un server test con entità FINTE, in realta dipende dall'aggiornamento delle valvole con il server di Tado, ho notato con Homekit ad esempio ci mette da 1 a 2 minuti per aggiornarsi sull'app Tado
+quind CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di aspettare almeno 2 minuti prima di ogni cambio, altrimenti le automazioni rischiano di non funzionare** 
+
+## AGGIORNAMENTO 22/03/25: Per i possessori di tado, attualmente l'integrazione ha dei problemi perche hanno aggiornato l'autenticazione delle loro API, pertanto l'integrazione non funziona per ora: https://github.com/home-assistant/core/issues/141089#
 
 
 Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella:
