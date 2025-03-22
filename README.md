@@ -16,7 +16,6 @@ quindi CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di a
 
 ## AGGIORNAMENTO 22/03/25: Per i possessori di tado, attualmente l'integrazione ha dei problemi perche hanno aggiornato l'autenticazione delle loro API, pertanto l'integrazione non funziona per ora: https://github.com/home-assistant/core/issues/141089#
 
-
 Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella:
 
 ```
@@ -150,3 +149,9 @@ actions:
 
 
 ![Card](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/cardvalvole.gif)
+
+
+## Changelog
+```
+22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità*
+```
