@@ -209,6 +209,11 @@ automation:
                 data: {}
               - target:
                   entity_id: *default_climate
+                action: climate.turn_on
+                data: {}
+              - delay: "00:00:01"
+              - target:
+                  entity_id: *default_climate
                 data:
                   temperature: 25
                   hvac_mode: heat
