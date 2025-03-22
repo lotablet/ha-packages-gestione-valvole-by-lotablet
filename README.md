@@ -15,7 +15,8 @@ Questo package è stato pensato e creato per una mia neccessità e condivisione 
 quindi CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di aspettare almeno 2 minuti prima di ogni cambio, altrimenti le automazioni rischiano di non funzionare** 
 
 
-Partiamo con il package: [gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella:
+Partiamo con il package: 
+[gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella
 
 ```
 /config/packages/
