@@ -25,7 +25,7 @@ Partiamo con il package:
 I componenti da installare in HACS sono:
 
 >   - Better Thermostat UI
->   - OPZIONALE: Better Thermostat (per usare un sensore non tado, che sincronizza l'offset sulla valvola)
+>   - Better Thermostat (per usare un sensore non tado, che sincronizza l'offset sulla valvola) ** VERSIONE 1.6.1, non installare la versione 1.7.0 perche ho notato problemi di calibrazione!    
 >   - Scheduler Component
 >   - Scheduler Card
 >   - Timer Bar Card
