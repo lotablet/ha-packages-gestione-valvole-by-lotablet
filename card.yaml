@@ -44,7 +44,6 @@ cards:
               box-shadow: none !important;
               background: none !important;
             }
-            }
       - type: custom:button-card
         entity: input_boolean.package_valvole_home
         show_name: false
