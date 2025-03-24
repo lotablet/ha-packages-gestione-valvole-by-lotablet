@@ -17,7 +17,8 @@ Questo package è stato pensato e creato per una mia neccessità e condivisione 
 # **Partiamo con il package:**
 
 
-## PREMESSA: Nel video di Tiktok ho detto di creare gli input_boolean da UI, ho deciso di includerli nel package, assicurarsi che siano inseriti nel RECORDER, se non hai mai modificato il RECORDER puoi anche ignorare e andare avanti
+**PREMESSA: Nel video di Tiktok ho detto di creare gli input_boolean da UI, ho deciso di includerli nel package assicurarsi che siano inseriti nel RECORDER, è importante per il funzionamento se per caso si riavvia il server di HA.
+Se non hai mai modificato il RECORDER puoi anche ignorare e andare avanti**
 
 Richesta configurazione **PACKAGES**
 - Apri File Editor o Samba - se non li hai li puoi trovare in "Impostazioni - Componenti Aggiuntivi"
