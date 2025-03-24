@@ -15,24 +15,16 @@ homeassistant:
             - climate.valvola_2
             - climate.valvola_3
             - climate.valvola_4
-            
+  # Inserire al posto di NOME_TELEFONO il nome dell'entita della chiamata di servizio all'app Companion di Home Assistant 
+           Notifiche Home Assistant: &push
+            notify.NOME_TELEFONO           
 #######################################################################################################################################
 #                      ******* IMPORTANTE ******* LEGGERE LA GUIDA QUI SOTTO
 #
-#  Partiamo con la cosa piu importante: GLI INPUT BOOLEAN
-#  Dobbiamo creare manualmente 3 INPUT BOOLEAN, personalmente a me non funzionava creandolo 
-#   direttamente nel package, quindi ho preferito crearli da frontend, percio creiamo gli input boolean:
+#         GLI INPUT BOOLEAN SONO STATI INCLUSI NEL PACKAGE, ASSICURARSI PERO CHE SIANO INSERITI NEL RECORDER
+#                       SE NON HAI MAI MODIFICATO IL RECORDER PUOI PURE IGNORARE E PROSEGUIRE
 #
-#    - IMPOSTAZIONI -> Dispositivi e Servizi -> Aiutanti -> crea
-#    - Creare questi 3 commutatori con questi NOMI ESATTI (fare doppio-click, copia e incollare nel box "Nome" dell'input-boolean)
-#
-#        1)  package_valvole_boost     
-#        2)  package_valvole_away
-#        3)  package_valvole_home
-# 
-#  Questi 3 commutatori sono fondamentali per il funzionamento della card, quindi controllare bene i nomi delle entità.
-#
-# Andiamo avanti,i componenti da installare in HACS sono:
+#     Andiamo avanti,i componenti da installare in HACS sono:
 #
 #   - Better Thermostat UI
 #   - OPZIONALE: Better Thermostat (se si vuole usare un sensore non tado che sincronizza l'offset sulla valvola)
@@ -71,12 +63,38 @@ homeassistant:
 
 # DA QUI IN POI NON TOCCARE NULLA A PARTE IL TIMER, SE SI VUOLE MODIFICARE IL TEMPO DI BOOST.
 
+#BINARY SENSOR
+binary_sensor:
+  - platform: template
+    sensors:
+      qualcuno_casa:
+        friendly_name: 'Qualcuno a Casa'
+        device_class: occupancy
+        value_template: >
+          {{ is_state('person.UTENTE1', 'home') or
+             is_state('person.UTENTE2', 'home') or
+             is_state('person.UTENTE3', 'home') }}
+        icon_template: >
+          {% if is_state('binary_sensor.qualcuno_casa', 'on') %}
+            mdi:home-account
+          {% else %}
+            mdi:home-outline
+          {% endif %}
 #INPUT
 input_datetime:
   package_valvole_boost_end:
     name: "Package Valvole - Fine Modalità Boost"
     has_date: true
     has_time: true
+input_boolean:
+  package_valvole_home:
+    name: "Valvole Home"
+  package_valvole_away:
+    name: "Valvole Away"
+  package_valvole_boost:
+    name: "Valvole Boost"
+  package_valvole_notifica_push:
+    name: "Package Valvole Notifica"
 
 #TIMER
 
@@ -90,6 +108,71 @@ timer:
 #AUTOMATION
 
 automation:
+  - alias: Packge Valvole - Gestione Presenze
+    description: >-
+      Quando nessuno a casa, attiva la modalità AWAY. Al rientro attiva la modalità
+      HOME
+    triggers:
+      - trigger: state
+        entity_id:
+          - binary_sensor.qualcuno_casa
+        to: "off"
+        for:
+          hours: 0
+          minutes: 20
+          seconds: 0
+        id: uscita
+      - trigger: state
+        entity_id:
+          - binary_sensor.qualcuno_casa
+        to: "on"
+        for:
+          hours: 0
+          minutes: 20
+          seconds: 0
+        id: entrata
+    conditions: []
+    actions:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id:
+                  - uscita
+            sequence:
+              - action: input_boolean.turn_on
+                metadata: {}
+                data: {}
+                target:
+                  entity_id: input_boolean.package_valvole_away
+              - choose:
+                  - conditions:
+                      - condition: state
+                        entity_id: input_boolean.package_valvole_notifica_push
+                        state: "on"
+                    sequence:
+                      - action: *push
+                        data:
+                          message: ⛔ Non ce nessuno a casa, spengo i riscaldamenti ⛔
+          - conditions:
+              - condition: trigger
+                id:
+                  - entrata
+            sequence:
+              - action: input_boolean.turn_on
+                metadata: {}
+                data: {}
+                target:
+                  entity_id: input_boolean.package_valvole_home
+              - choose:
+                  - conditions:
+                      - condition: state
+                        entity_id: input_boolean.package_valvole_notifica_push
+                        state: "on"
+                    sequence:
+                      - action: *push
+                        data:
+                          message: 🔥 Qualcuno è a casa, ho riacceso i riscaldamenti 🔥
+    mode: single
   - alias: Package Gestione Valvole - Ripristino Boost Off
     id: package_ripristino_boost
     triggers:
