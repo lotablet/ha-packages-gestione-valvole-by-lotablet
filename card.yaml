@@ -1,90 +1,4 @@
-square: false
-type: grid
-cards:
-  - type: horizontal-stack
-    cards:
-      - type: custom:button-card
-        entity: input_boolean.package_valvole_boost
-        show_name: false
-        show_state: false
-        icon: mdi:rocket-launch
-        styles:
-          card:
-            - height: 55px
-            - width: 55px
-            - border-radius: 30%
-          icon:
-            - width: 30px
-            - height: 30px
-        tap_action:
-          action: toggle
-          confirmation:
-            text: >
-              [[[ return states['input_boolean.package_valvole_boost'].state ===
-              'on'
-                    ? "Disattivo la Modalità Boost?"
-                    : "Attivo la Modalità Boost 🚀 ?" ]]]
-            confirm_text: Conferma
-            cancel_text: Annulla
-      - type: custom:timer-bar-card
-        sync_issues: ignore
-        entities:
-          - entity: timer.package_valvole_boost
-            name: ""
-            icon: "n"
-        card_mod:
-          style: |
-            ha-card {
-              width: 0px !important;
-              left: -123px;
-              top: 30px;
-            }
-      - type: custom:button-card
-        entity: input_boolean.package_valvole_home
-        show_name: false
-        icon: mdi:home
-        show_state: false
-        styles:
-          card:
-            - height: 55px
-            - width: 55px
-            - border-radius: 30%
-          icon:
-            - width: 30px
-            - height: 30px
-        tap_action:
-          action: toggle
-          confirmation:
-            text: >
-              [[[ return states['input_boolean.package_valvole_home'].state ===
-              'on'
-                    ? "❌ Disattivo la Modalità Casa? ❌"
-                    : "🏠Attivo la Modalità Casa?🏠" ]]]
-            confirm_text: Conferma
-            cancel_text: Annulla
-      - type: custom:button-card
-        entity: input_boolean.package_valvole_away
-        show_name: false
-        show_state: false
-        icon: mdi:walk
-        styles:
-          card:
-            - height: 55px
-            - width: 55px
-            - border-radius: 30%
-          icon:
-            - width: 30px
-            - height: 30px
-        tap_action:
-          action: toggle
-          confirmation:
-            text: >
-              [[[ return states['input_boolean.package_valvole_away'].state ===
-              'on'
-                    ? "❌Disattivo la Modalità Away?❌🚶‍♂️‍➡️"
-                    : "🚶‍♂️‍➡️Vuoi attivare la Modalità Away?🚶‍♂️‍➡️" ]]]
-            confirm_text: Conferma
-            cancel_text: Annulla
+
   - type: horizontal-stack
     cards:
       - type: custom:gap-card
@@ -98,6 +12,15 @@ cards:
         show_icon: true
         tap_action:
           action: toggle
+          confirmation:
+            text: >
+              [[[ return
+              states['input_boolean.package_valvole_notifica_push'].state ===
+              'on'
+                    ? "🔕 Vuoi disattivare le notifiche? 🔕"
+                    : "🔔 Vuoi riattivare le notifiche? 🔔" ]]]
+            confirm_text: Ok
+            cancel_text: Annulla
         hold_action:
           action: more-info
         styles:
