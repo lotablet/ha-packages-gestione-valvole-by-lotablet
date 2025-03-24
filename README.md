@@ -10,10 +10,9 @@ Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
 
 ## Changelog
-```
-22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità
-24/03/25 - incluso nel package gli input_boolean necessari, binary_sensor e automazione per gestione presenze
-```
+
+- 22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità
+- 24/03/25 - incluso nel package gli input_boolean necessari, binary_sensor, automazione per gestione presenze e pulsante per attivare/disattivare le notifiche
 
 # **Partiamo con il package:**
 
