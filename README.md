@@ -9,14 +9,21 @@ Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
 
-## DISCLAIMER per chi ha tado: 
 
-**Nella dimostrazione, faccio cambi di modalità veloci perche le prove sono state fatte su un server test con entità FINTE, in realta dipende dall'aggiornamento delle valvole con il server di Tado, ho notato con Homekit ad esempio ci mette da 1 a 2 minuti per aggiornarsi sull'app Tado
-quindi CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di aspettare almeno 2 minuti prima di ogni cambio, altrimenti le automazioni rischiano di non funzionare** 
+# **Partiamo con il package:**
 
 
-Partiamo con il package: 
-[gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella
+Richesta configurazione PACKAGES
+- Apri File Editor o Samba - se non li hai li puoi trovare in "Impostazioni - Componenti Aggiuntivi"
+- crea una cartella "packages" nella cartella principale - /config
+- Apri configuration.yaml
+- Aggiungi questa riga:
+```
+homeassistant:
+  packages: !include_dir_named packages
+
+```
+[gestione_valvole_lotablet.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/gestione_valvole_lotablet.yaml) <------ questo va inserito nella cartella packages
 
 ```
 /config/packages/
@@ -136,7 +143,10 @@ actions:
             target:
               entity_id: input_boolean.package_valvole_home
 ```
+## DISCLAIMER per chi ha tado: 
 
+**Nella dimostrazione, faccio cambi di modalità veloci perche le prove sono state fatte su un server test con entità FINTE, in realta dipende dall'aggiornamento delle valvole con il server di Tado, ho notato con Homekit ad esempio ci mette da 1 a 2 minuti per aggiornarsi sull'app Tado
+quindi CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di aspettare almeno 2 minuti prima di ogni cambio, altrimenti le automazioni rischiano di non funzionare** 
 ## SCREENSHOTS
 
 **Questa è la mia configurazione con delle valvole Tado V3+**
