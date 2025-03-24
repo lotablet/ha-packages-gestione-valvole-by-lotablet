@@ -28,6 +28,7 @@ homeassistant:
 ```
 /config/packages/
 ```
+Richiesto HACS -> [Installazione HACS](https://www.hacs.xyz/docs/use/download/download/)
 
 I componenti da installare in HACS sono:
 
