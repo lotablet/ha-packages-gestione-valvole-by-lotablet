@@ -9,11 +9,18 @@ Video sul package [TIKTOK](https://vm.tiktok.com/ZNdd7rjRY/)
 
 Questo package è stato pensato e creato per una mia neccessità e condivisione con amici, e quindi ho deciso di pubblicarlo ( ciao a Roby e Alex <3 )
 
+## Changelog
+```
+22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità
+24/03/25 - incluso nel package gli input_boolean necessari, binary_sensor e automazione per gestione presenze
+```
 
 # **Partiamo con il package:**
 
 
-Richesta configurazione PACKAGES
+## PREMESSA: Nel video di Tiktok ho detto di creare gli input_boolean da UI, ho deciso di includerli nel package, assicurarsi che siano inseriti nel RECORDER, se non hai mai modificato il RECORDER puoi anche ignorare e andare avanti
+
+Richesta configurazione **PACKAGES**
 - Apri File Editor o Samba - se non li hai li puoi trovare in "Impostazioni - Componenti Aggiuntivi"
 - crea una cartella "packages" nella cartella principale - /config
 - Apri configuration.yaml
@@ -70,11 +77,9 @@ Niente di speciale, è solo una card con 3 pulsanti e un timer, ma è un buon pu
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
 La card ha 3 pulsanti ed un timer, Modalità Boost che attiva un timer da 1 ora, Modalità Away e Modalità Home, e fanno esattamente quello che farebbe l'app di Tado.
 
-**ATTENZIONE:** Per la modalità Away e Home, vi basta creare un automazione che quando non ce nessuno in casa, si attiva la modalità Away.
 
-Non ho voluto di proposito includere questa automazione perche è opzionale, e molto semplice da realizzare, potete usare questo codice:
-
-Basta fare un **binary_sensor** di presenza in casa:
+# Spiegazione **binary_sensor** di presenza in casa:
+Nel package cercare questa sezione:
 ```
 binary_sensor:
   - platform: template
@@ -95,55 +100,9 @@ binary_sensor:
 ```
 
 Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con i nomi utente delle persone che hanno il profilo sul vostro server di Home Assistant, con ovviamente relativo device_tracker configurato per ogni profilo.
+Se siamo da soli, ci bastera questo codice sotto "value_template": {{ is_state('person.UTENTE', 'home') }}
 
-Ecco un automazione per la gestione della presenza e spegnimento/accensione delle valvole (incollo direttamente l'automazione da inserire in Automazioni e Scenari - Automazioni)
-```
-alias: Gestione Presenze Valvole
-description: "Quando nessuno a casa, attiva la modalità AWAY. Al rientro attiva la modalità HOME"
-mode: single
-triggers:
-  - trigger: state
-    entity_id:
-      - binary_sensor.qualcuno_casa
-    to: "off"
-    for:
-      hours: 0
-      minutes: 30
-      seconds: 0
-    id: uscita
-  - trigger: state
-    entity_id:
-      - binary_sensor.qualcuno_casa
-    to: "on"
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    id: entrata
-conditions: []
-actions:
-  - choose:
-      - conditions:
-          - condition: trigger
-            id:
-              - uscita
-        sequence:
-          - action: input_boolean.turn_on
-            metadata: {}
-            data: {}
-            target:
-              entity_id: input_boolean.package_valvole_away
-      - conditions:
-          - condition: trigger
-            id:
-              - entrata
-        sequence:
-          - action: input_boolean.turn_on
-            metadata: {}
-            data: {}
-            target:
-              entity_id: input_boolean.package_valvole_home
-```
+
 ## DISCLAIMER per chi ha tado: 
 
 **Nella dimostrazione, faccio cambi di modalità veloci perche le prove sono state fatte su un server test con entità FINTE, in realta dipende dall'aggiornamento delle valvole con il server di Tado, ho notato con Homekit ad esempio ci mette da 1 a 2 minuti per aggiornarsi sull'app Tado
@@ -161,8 +120,3 @@ quindi CONSIGLIO VIVAMENTE di non cambiare modalità troppo velocemente, ma di a
 
 ![Card](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/cardvalvole.gif)
 
-
-## Changelog
-```
-22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità*
-```
