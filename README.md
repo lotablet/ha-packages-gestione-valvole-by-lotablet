@@ -50,7 +50,7 @@ I componenti da installare in HACS sono:
 >   - Card Mod
 
 
-   3) SCHEDULER - LA PROGRAMMAZIONE ORARIA
+3) SCHEDULER - LA PROGRAMMAZIONE ORARIA
 
    Una volta installato tutto, riavviare il server di HA, aggiungere l'integrazione Scheduler Component, poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
    La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app di tado© e copiarle, per ogni valvola.
@@ -64,7 +64,7 @@ I componenti da installare in HACS sono:
 **Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità andranno inserite in "default_schedule" (vedi "Lista Scheduler Switch Valvole" nel package)**
 
 
-   4) BETTER THERMOSTAT
+4) BETTER THERMOSTAT
 
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate qui sotto nella sezione **SCREENSHOTS**
