@@ -105,8 +105,8 @@ Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con i nomi utente delle persone che h
 
 Se siamo da soli, ci bastera questo codice sotto:
 ```
-value_template: >
-  {{ is_state('person.UTENTE', 'home') }}
+        value_template: >
+          {{ is_state('person.UTENTE', 'home') }}
 ```
 
 ## DISCLAIMER per chi ha tado: 
