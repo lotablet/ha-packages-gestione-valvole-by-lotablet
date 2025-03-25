@@ -16,11 +16,13 @@ Questo package è stato pensato e creato per una mia neccessità e condivisione 
 
 # **Partiamo con il package:**
 
-
 **PREMESSA: Nel video di Tiktok ho detto di creare gli input_boolean da UI, ho deciso di includerli nel package assicurarsi che siano inseriti nel RECORDER, è importante per il funzionamento se per caso si riavvia il server di HA.
 Se non hai mai modificato il RECORDER puoi anche ignorare e andare avanti**
 
-Richesta configurazione **PACKAGES**
+**Come descritto dal Changelog, ho inserito automazioni e binary_sensor per la presenza in casa**
+
+
+1) Richesta configurazione **PACKAGES**
 - Apri File Editor o Samba - se non li hai li puoi trovare in "Impostazioni - Componenti Aggiuntivi"
 - crea una cartella "packages" nella cartella principale - /config
 - Apri configuration.yaml
@@ -35,7 +37,7 @@ homeassistant:
 ```
 /config/packages/
 ```
-Richiesto HACS -> [Installazione HACS](https://www.hacs.xyz/docs/use/download/download/)
+2) Richiesto HACS -> [Installazione HACS](https://www.hacs.xyz/docs/use/download/download/)
 
 I componenti da installare in HACS sono:
 
@@ -48,7 +50,7 @@ I componenti da installare in HACS sono:
 >   - Card Mod
 
 
-   SCHEDULER - LA PROGRAMMAZIONE ORARIA
+   3) SCHEDULER - LA PROGRAMMAZIONE ORARIA
 
    Una volta installato tutto, riavviare il server di HA, aggiungere l'integrazione Scheduler Component, poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
    La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app di tado© e copiarle, per ogni valvola.
@@ -62,7 +64,7 @@ I componenti da installare in HACS sono:
 **Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità andranno inserite in "default_schedule" (vedi "Lista Scheduler Switch Valvole" nel package)**
 
 
-   BETTER THERMOSTAT
+   4) BETTER THERMOSTAT
 
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate qui sotto nella sezione **SCREENSHOTS**
@@ -71,7 +73,7 @@ I componenti da installare in HACS sono:
 
 # **CARD**
 
-In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 6 valvole e i 3 input boolean creati e un timer per la modalità BOOST.
+In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 4 valvole e i 3 input boolean creati e un timer per la modalità BOOST.
 Niente di speciale, è solo una card con 3 pulsanti e un timer, ma è un buon punto di partenza per sbizzarrirvi 😁
 
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
