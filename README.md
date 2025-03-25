@@ -102,8 +102,12 @@ binary_sensor:
 ```
 
 Sostituire **UTENTE1 , UTENTE2 , UTENTE3** con i nomi utente delle persone che hanno il profilo sul vostro server di Home Assistant, con ovviamente relativo device_tracker configurato per ogni profilo.
-Se siamo da soli, ci bastera questo codice sotto "value_template": {{ is_state('person.UTENTE', 'home') }}
 
+Se siamo da soli, ci bastera questo codice sotto:
+```
+value_template: >
+  {{ is_state('person.UTENTE', 'home') }}
+```
 
 ## DISCLAIMER per chi ha tado: 
 
