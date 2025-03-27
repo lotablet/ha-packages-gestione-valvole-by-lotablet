@@ -59,11 +59,11 @@ homeassistant:
    
     **UTENTI TADO:** Nell'app di tado© ho disabilitato la Programmazione Intelligente, andando in "Impostazioni - Programmazione Intelligente" e impostando la fascia oraria da 00:00 a 00:00 in ogni stanza su OFF e poi in "Stanze e dispositivi" 
    impostare il "Controllo manuale del dispositivo tado" su "Finchè l'utente non lo modifica" cliccando sulla stanza (non sulla valvola).
-   Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler (vedi screenshot in fondo alla pagina)
+   Cosi facendo, abbiamo escluso la Programmazione Intelligente di tado cosi non interferirà con la programmazione di Scheduler.
    
     **Una volta creata la programmazione oraria con scheduler, verrano create delle entita "switch" che attivano o disattivano la programmazione oraria, queste entità andranno inserite in "default_schedule" (vedi "Lista Scheduler Switch Valvole" nel package)**
 
-4) BETTER THERMOSTAT
+5) BETTER THERMOSTAT
 
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: [LINK](https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md)
    
