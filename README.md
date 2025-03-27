@@ -68,7 +68,8 @@ homeassistant:
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: [LINK](https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md)
    
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate qui sotto nella sezione **SCREENSHOTS**
-   Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sotto "default_climate"
+   
+   Una volta configurato "Better Thermostat", avremmo un entità **climate** che andrà inserita nella lista sotto "**default_climate**"
    ```
    Lista Valvole Termostatiche: &default_climate
      - climate.valvola_1
@@ -77,6 +78,14 @@ homeassistant:
      - climate.valvola_4
    ```
    OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat quando si configura la valvola, io questa parte l'ho esclusa dal package perche l'ho automatizzata tramite Node-RED.
+
+   Ho configurato anche le notifiche per la presenza in casa, ci basta inserire il nome del servizio collegato alle notifiche del telefono, con il prefisso **NOTIFY** e il nome, se abbiamo configurato l'app companion di Home Assistant:
+
+   
+   ```
+   Notifiche Home Assistant: &push
+     notify.NOME_TELEFONO           
+   ```
 
 # **CARD**
 
