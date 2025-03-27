@@ -11,8 +11,8 @@ Questo package è stato pensato e creato per una mia neccessità e condivisione 
 
 ## Changelog
 
-- 22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità
 - 24/03/25 - incluso nel package gli input_boolean necessari, binary_sensor, automazione per gestione presenze e pulsante per attivare/disattivare le notifiche
+- 22/03/25 - aumentato leggermente i delay delle automazioni per una maggiore stabilità
 
 # **Partiamo con il package:**
 
