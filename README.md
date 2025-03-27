@@ -90,7 +90,8 @@ homeassistant:
 # **CARD**
 
 In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 4 valvole, 4 pulsanti delle modalità HOME, AWAY, BOOST, NOTIFICHE e un timer per la modalità BOOST.
-Niente di speciale, è solo una card con 3 pulsanti e un timer, ma è un buon punto di partenza per sbizzarrirvi 😁
+
+Potrà sembrare niente di speciale, è una card con 4 pulsanti e un timer, ma l'anima del package è l'automazione che c'è dietro a fare la differenza ed ovviamente Scheduler.
 
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
 La card ha 3 pulsanti ed un timer, Modalità Boost che attiva un timer da 1 ora, Modalità Away e Modalità Home, e fanno esattamente quello che farebbe l'app di Tado.
