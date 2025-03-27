@@ -52,7 +52,7 @@ homeassistant:
 
 3) SCHEDULER - LA PROGRAMMAZIONE ORARIA
 
-   Una volta installato tutto, riavviare il server di HA, aggiungere l'integrazione Scheduler Component, poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
+   Una volta installato tutto, riavviare il server di HA, andare in "Dispositivi e Servizi" - "Aggiungi" e cercare "Scheduler Component" , poi creare una nuova dashboard o una nuova scheda dove va inserita la card di Scheduler.
    La prima cosa da fare è creare una programmazione oraria in Scheduler con gli orari e temperature che abbiamo nell'app di tado© e copiarle, per ogni valvola.
    
    ![Scheduler](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/images/scheduler.gif)
