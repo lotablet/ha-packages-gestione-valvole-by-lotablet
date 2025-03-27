@@ -68,12 +68,19 @@ homeassistant:
    Per la parte "Better Thermostat" e la configurazione del sensore esterno "non tado", vi rimando alla guida ufficiale: [LINK](https://github.com/KartoffelToby/better_thermostat/blob/master/docs/Configuration/configuration.md)
    
    Io personalmente, ho inserito un sensore di temperatura SONOFF e ho configurato Better Thermostat come da immagini allegate qui sotto nella sezione **SCREENSHOTS**
-   Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sotto "default_climate" (vedi "Lista Valvole Termostatiche" nel package)
-   OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat, io questa parte l'ho esclusa dal package perche l'ho automatizzata tramite Node-RED.
+   Una volta configurato "Better Thermostat", avremmo un entità climate che andrà inserita nella lista sotto "default_climate"
+   ```
+   Lista Valvole Termostatiche: &default_climate
+     - climate.valvola_1
+     - climate.valvola_2
+     - climate.valvola_3
+     - climate.valvola_4
+   ```
+   OPZIONALE: Potete anche inserire un delay di "distacco" e "riarmo" se si apre una finestra nelle impostazioni di Better Thermostat quando si configura la valvola, io questa parte l'ho esclusa dal package perche l'ho automatizzata tramite Node-RED.
 
 # **CARD**
 
-In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 4 valvole e i 3 input boolean creati e un timer per la modalità BOOST.
+In [card.yaml](https://github.com/lotablet/ha-card-gestione-valvole-by-lotablet/blob/main/card.yaml) trovate una card con 4 valvole, 4 pulsanti delle modalità HOME, AWAY, BOOST, NOTIFICHE e un timer per la modalità BOOST.
 Niente di speciale, è solo una card con 3 pulsanti e un timer, ma è un buon punto di partenza per sbizzarrirvi 😁
 
 # **Descrizione Card e Opzioni Aggiuntive/Automazioni supplementari**
