@@ -1,3 +1,6 @@
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/lotablet)
+
+
 # 🔥 **GESTIONE VALVOLE by LoTableT** 🔥
 
 Benvenuto nella guida di questo package per la gestione delle nostre valvole termostatiche!
